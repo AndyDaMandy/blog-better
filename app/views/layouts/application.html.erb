@@ -14,12 +14,21 @@
   </head>
 
   <body>
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+    <header>
+    <p>
+      <% if logged_in? %>
+        Logged in as: <strong><%= current_user.username %></strong>
+      <% else %>
+        Not currently logged in
+      <% end %>
+    </p>
+    </header>
+    <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
